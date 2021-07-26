@@ -2,7 +2,7 @@
 COMMON_OBJECTS  = 
 CPU             = msp430g2553
 CFLAGS          = -mmcu=${CPU} -I../h
-LDFLAGS		= -L/opt/ti/msp430_gcc/include
+LDFLAGS		= -L../lib -L/opt/ti/msp430_gcc/include
 
 #switch the compiler (for the internal make rules)
 CC              = msp430-elf-gcc
@@ -10,8 +10,8 @@ AS              = msp430-elf-as
 
 all: run.elf 
 
-run.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o main.o buzzer.o switches.o stateMachines.o led.o wdInterruptHandler.o ../lib/libTimer.a
-	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
+run.elf: ${COMMON_OBJECTS} wdt_handler.o p1_interrupt_handler.o main.o buzzer.o switches.o stateMachines.o led.o wdInterruptHandler.o ../lib/libTimer.a
+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lTimer -lLcd
 
 wdInterruptHandler.o: stateMachines.h
 switches.o: switches.h
