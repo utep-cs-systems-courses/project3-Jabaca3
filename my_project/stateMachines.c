@@ -11,29 +11,32 @@ char button_four;
 
 void state_advance(){
 
+  my_shape(COLOR_RED);
   // Turn on Normal light
+
   if(state==1){
     buzzer_set_period(3822);
-    clearScreen(COLOR_RED);
+    move_shape_Left(10);
    }
   
   // Turn on half DIM light
   else if(state==2){
     buzzer_set_period(3214);
-    clearScreen(COLOR_WHITE);
+    move_shape_Down(10);
    }
   
   // Turn on Full DIM light
   else if (state==3){
     buzzer_set_period(2551);
-    clearScreen(COLOR_BLUE);
+    move_shape_Up(10);
 }
   
   else if (state==4){
     buzzer_set_period(2551);
-    clearScreen(COLOR_GREEN);
+    move_shape_Right(10);
 }
   buzzer_set_period(0);
+  my_shape(COLOR_RED);
 }
 
 // Helper functions

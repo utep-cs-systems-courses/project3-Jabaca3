@@ -20,6 +20,7 @@ void main(void) {
   lcd_init();
   buzzer_init();
   buzzer_set_period(0);
+  my_shape(COLOR_RED);
   enableWDTInterrupts();	/* enable periodic interrupt */  
   or_sr(0x18);		/* CPU off, GIE on */
 }
