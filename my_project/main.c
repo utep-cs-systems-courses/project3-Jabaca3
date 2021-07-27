@@ -4,8 +4,15 @@
 #include "led.h"
 #include "switches.h"
 #include "buzzer.h"
-#include "lcdutils.h"
-#include "lcddraw.h"
+#include "../lcdLib/lcdutils.h"
+#include "../lcdLib/lcddraw.h"
+
+short redrawScreen = 1;
+u_int fontFgColor = COLOR_GREEN;
+
+void wdt_c_handler(){
+  clearScreen(COLOR_WHITE);
+}
 
 void main(void) {
   configureClocks();		/* setup master oscillator, CPU & peripheral clocks */
