@@ -12,7 +12,8 @@
  *  \param colorBGR Color of pixel in BGR
  */
 
-int offsetX = 25;
+int my_color = COLOR_RED;
+int offsetX = 40;
 int offsetY = 50;
 
 void move_shape_Left(u_int x){
@@ -33,9 +34,9 @@ void move_shape_Down(u_int y){
   offsetY+=y;
 }
 
-void my_shape(u_int color){
-  fillRectangle(offsetX+1, offsetY+15, 50, 20, color);
-  fillRectangle(offsetX+15, offsetY+1, 20, 50, color);
+void my_shape(){
+  fillRectangle(offsetX+1, offsetY+15, 50, 20, my_color);
+  fillRectangle(offsetX+15, offsetY+1, 20, 50, my_color);
 
   // Left Arrow
   int offsetXTL= offsetX;     // X Triangle Left
@@ -49,12 +50,12 @@ void my_shape(u_int color){
     for(int c=0; c<=r; c++){
 
       // Left Arrow
-      drawPixel(offsetX-c, offsetY+r, color);
-      drawPixel(offsetXTL-c, offsetYTL-r, color);
+      drawPixel(offsetX-c, offsetY+r, my_color);
+      drawPixel(offsetXTL-c, offsetYTL-r, my_color);
 
       // Right Arrow
-      drawPixel(offsetXTR+c, offsetYTL-r, color);
-      drawPixel(offsetXTR+c, offsetYTR+r, color);
+      drawPixel(offsetXTR+c, offsetYTL-r, my_color);
+      drawPixel(offsetXTR+c, offsetYTR+r, my_color);
     }
   }
 }
