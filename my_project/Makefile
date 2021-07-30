@@ -14,8 +14,8 @@ run.elf: ${COMMON_OBJECTS} wdt_handler.o p1_interrupt_handler.o main.o buzzer.o 
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lTimer -lLcd
 
 #wdInterruptHandler.o: stateMachines.h
-switches.o: switches.h
-stateMachines.o: led.h stateMachines.h
+switches.o: switches.h stateMachine.s
+stateMachines.o: stateMachine.s stateMachines.h
 led.o: led_s.s led.h
 buzzer.o: buzzer.h
 

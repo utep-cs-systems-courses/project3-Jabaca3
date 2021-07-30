@@ -12,8 +12,8 @@ char button_four;
 void state_advance(){
 
   my_shape(COLOR_RED);
+  
   // Turn on Normal light
-
   if(state==1){
     buzzer_set_period(3822);
     //move_shape_Left(10);
