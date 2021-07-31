@@ -13,14 +13,16 @@
 	.global state
 	.extern move_shape_Left
 	.extern move_shape_Right
+	.extern move_shape_Up
+	.extern move_shape_Down
 	.extern clearScreen
-	.extern my_color
 	.extern COLOR_RED
 	.extern COLOR_YELLOW
 	.extern COLOR_MAGENTA
 	.extern COLOR_BLUE
 	
 	.data
+	.extern my_color
 
 state:
 	.word 0
@@ -29,7 +31,7 @@ jt:
 	.word case_2
 	.word case_3
 	.word case_4
-	.word end
+
 
 state_advance:
 	mov &state, r12		;MOVES STATE INTO REGISTER 12
@@ -51,13 +53,13 @@ case_2:
 case_3:
 	mov 0x001f, r12
 	mov &COLOR_YELLOW, &my_color
-	call #clearScreen
+	call #move_shape_Up
 	jmp end
 	
 case_4:
-	mov 0x001f, r12
+	mov &COLOR_MAGENTA, r12
 	mov &COLOR_MAGENTA, &my_color
-	call #clearScreen
+	call #move_shape_Left
 	jmp end
 end:
 	pop r0

@@ -15,27 +15,27 @@ void state_advance(){
   
   // Turn on Normal light
   if(state==1){
-    buzzer_set_period(3822);
+    //buzzer_set_period(3822);
     //move_shape_Left(10);
     my_color=COLOR_BLUE;
    }
   
   // Turn on half DIM light
   else if(state==2){
-    buzzer_set_period(3214);
+    //buzzer_set_period(3214);
     //move_shape_Down(10);
     my_color=COLOR_RED;
    }
   
   // Turn on Full DIM light
   else if (state==3){
-    buzzer_set_period(2551);
+    //buzzer_set_period(2551);
     //move_shape_Up(10);
     my_color=COLOR_GREEN;
 }
   
   else if (state==4){
-    buzzer_set_period(2551);
+    //buzzer_set_period(2551);
     //move_shape_Right(10);
     my_color=COLOR_MAGENTA;
 }

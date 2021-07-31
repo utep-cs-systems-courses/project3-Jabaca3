@@ -9,9 +9,7 @@
 
 #define LED BIT6/* note that bit zero req'd for display */
 short redrawScreen = 1;
-
 char state1=1;
-
 
 void wdt_c_handler(){
   static int secCount = 0;
