@@ -15,10 +15,10 @@ void wdt_c_handler(){
   static int secCount = 0;
   secCount++;
   
-  if (secCount == 75) {
+  if (secCount == 20) {
     redrawScreen=1;
     secCount=0;
-     switch(state1){
+    switch(state1){
      case 1: move_shape_Left(10);  state1++; break;
      case 2: move_shape_Down(10);  state1++; break;
      case 3: move_shape_Right(10); state1++; break;

@@ -26,7 +26,9 @@
 
 state:
 	.word 0
+	
 jt:
+	.word default
 	.word case_1
 	.word case_2
 	.word case_3
@@ -35,9 +37,12 @@ jt:
 
 state_advance:
 	mov &state, r12		;MOVES STATE INTO REGISTER 12
-	add r12, r12		;DOUBLE FOR WORDS IN SEQUENCE
+	add r12, r12
 	mov jt(r12), r0		;INDEXES JT TABLE IN REGISTER 0
-
+	
+default:
+	mov #1, &state
+	
 case_1:
 	mov #10, r12
 	mov &COLOR_BLUE, &my_color
